@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xử lý ảnh</title>
+</head>
+<body>
+    <h1>Xử lý ảnh</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        
+        <label for="hinhanh">Hình ảnh:</label>
+        {{ form.file(size=20) }}
+        {% if form.file.errors %}
+            {% for error in form.file.errors %}
+                <b>{{ error }}</b>
+            {% endfor %}
+        {% endif %}<br><br>
+        
+        
+        <input type="submit" value="xử lý ảnh">
+    </form>
+
+    {% if images %}
+        <h2>Kết quả xử lý</h2>
+        <p>Ảnh xám: <img src="{{images[0]}}" alt="Ảnh xám"></p>
+
+        <h2>Kết quả xử lý</h2>
+        <p>Ảnh mờ: <img src="{{images[1]}}" alt="Ảnh xám"></p>
+
+        <h2>Kết quả xử lý</h2>
+        <p>Ảnh phát cảnh: <img src="{{images[2]}}" alt="Ảnh xám"></p>
+
+        <h2>Kết quả xử lý</h2>
+        <p>Ảnh đường viền: <img src="{{images[3]}}" alt="Ảnh xám"></p>
+    {% endif %}
+</body>
+</html>

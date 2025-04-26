@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhận diện biển số xe</title>
+</head>
+<body>
+    <h1>Nhận diện biển số xe</h1>
+    <form method="POST" enctype="multipart/form-data" novalidate>
+        {{ form.hidden_tag() }}
+        
+        <label for="hinhanh">Hình ảnh:</label>
+        {{ form.file(size=20) }}
+        {% if form.file.errors %}
+            {% for error in form.file.errors %}
+                <b>{{ error }}</b>
+            {% endfor %}
+        {% endif %}<br><br>
+        
+        
+        <input type="submit" value="xử lý ảnh">
+    </form>
+
+
+    {% if image %}
+        <h3>Biển số nhận diện: {{plate_text}}</h3> 
+        <img src="{{image}}" width="350">
+    {% endif %}
+</body>
+</html>

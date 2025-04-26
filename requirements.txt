@@ -1,0 +1,17 @@
+opencv-python
+flask
+flask-wtf
+pymysql
+flask_sqlalchemy
+flask-security-too
+flask-mail
+numpy
+pytesseract
+easyocr
+imutils
+gtts
+pyspellchecker
+indexer
+pyvi
+googletrans==4.0.0-rc1
+ultralytics
